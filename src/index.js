@@ -29,7 +29,7 @@ console.assert( isPalindrome("cowboy") === false )
 // --------------------------------------------------------------------------
 // --------------------------------------------------------------------------
 // --------------------------------------------------------------------------
-
+// ---- 3.1 ----
 // write a function on the Array prototype
 // called groupBy(callback) that takes a callback
 // function. For each item in groupBy, callback's
@@ -58,13 +58,6 @@ Array.prototype.groupBy = function(callback) {
 [1,2,3,4,5,6,7,8,9,10].groupBy(function(v, i, arr) {
       return (v%2 === 0) ? 'even' : 'odd'
 })
-
-
-
-
-
-
-
 
 
 // --------------------------------------------------------------------------
@@ -236,12 +229,30 @@ console.assert(cat.growl() === "meow")
 
 // 4. Create a constructor called `KeepSecret`. The constructor function itself should accept a parameter called `secret` it should store this in a private variable (use a closure). Add a method to the prototype that is called `squeal` that returns the secret string.
 
+function KeepSecret(secret) {
+  this.squeal = function () {
+  return secret;
+  };
+}
+
 // assertions
 var mySecret = "My class rocks!"
 var dontTellNobody = new KeepSecret(mySecret)
 console.assert(dontTellNobody.squeal() === mySecret)
 
 // 5. Create a constructor called `Key`. Create another constructor called `Safe`. Make the Safe constructor take 2 arguments. The first argument can be any piece if data to keep safe. This must be stored using a private variable like you did with KeepSecret. The 2nd param to the `Safe` constructor needs to be an instance of `Key` you need to store it privately as well. Add a function to the Safe prototype called `unlock` that accepts a key. If the key matches the key that was used to create the Safe; then return the secret data.
+
+function Key(){
+}
+
+function Safe(a, b){
+  this.unlock = function (keyInstance) {
+    if (keyInstance === b)
+
+      return a;
+  };
+}
+
 
 // assertions
 var sensitive = "shhhhh!"
