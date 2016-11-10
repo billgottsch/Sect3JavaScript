@@ -206,10 +206,8 @@ console.assert(foo instanceof Foo)
 //                                                              -----DONE-----
 
 function Dog(){
+  this.says = 'life is ruff'
 }
-
-Dog.prototype.says = "life is ruff"
-
 // assertions
 console.assert(new Dog().says === "life is ruff")
 
@@ -218,7 +216,6 @@ console.assert(new Dog().says === "life is ruff")
 // 3. Create a constructor function called `Cat` that has a method on it's prototype called `growl` that returns the string `meow`; create an instance of this called `cat`
 //                                                               -----DONE-----
 function Cat(){
-
 }
 
 Cat.prototype.growl = function(){
@@ -233,11 +230,13 @@ console.assert(cat.growl() === "meow")
 // 4. Create a constructor called `KeepSecret`. The constructor function itself should accept a parameter called `secret` it should store this in a private variable (use a closure). Add a method to the prototype that is called `squeal` that returns the secret string.
 //                                                               -----DONE-----
 function KeepSecret(secret) {
-  this.squeal = function () {
-  return secret;
+  this.secret = secret;
   };
-}
 
+
+KeepSecret.prototype.squeal = function() {
+  return this.secret;
+}
 // assertions
 var mySecret = "My class rocks!"
 var dontTellNobody = new KeepSecret(mySecret)
@@ -248,12 +247,15 @@ console.assert(dontTellNobody.squeal() === mySecret)
 function Key(){
 }
 
-function Safe(sensitive, rightkey){
-  this.unlock = function (keyInstance) {
-    if (keyInstance === rightkey)
-
-      return sensitive;
+function Safe(keepme, keyInstance){
+  this.keepme = keepme;
+  this.keyInstance = keyInstance;
   };
+
+Safe.prototype.unlock = function(key) {
+  if(key === this.keyInstance) {
+    return this.keepme;
+  }
 }
 // assertions
 var sensitive = "shhhhh!"
