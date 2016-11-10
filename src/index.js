@@ -66,7 +66,7 @@ Array.prototype.groupBy = function(callback) {
 // --------------------------------------------------------------------------
 
 
-// WHAT IS THIS ASSIGNMENT (seriously...)
+// WHAT IS THIS ASSIGNMENT (seriously...)                 -----DONE-----
 
 
 // utility for logging
@@ -145,8 +145,14 @@ console.assert(whatIsThis.apply(trickyTricky) === '[object Object],,')
 console.assert(whatIsThis.apply(confusing, ['nice', 'job']) === '[object Object],nice,job')
 //Passing in an array of two strings, nice and job, into the confusing argument of apply.
 
+
+
+
 //console.assert(whatIsThis.apply(confusing, 'nice', 'job') === FILL_ME_IN)
 // It doesn't work because 'nice' and 'job' are not in an array. It just tried to run a pile of stuff.
+
+
+
 
 console.assert(inAFunction('what will', 'happen?') === FILL_ME_IN)
 // Once you've figured out what the output is, answer here in a comment: Why is this so?
@@ -172,7 +178,7 @@ console.assert(inAnObject.test1.call(trickyTricky, 'face', 'book') === '[object 
 //We are calling on test1 and giving it an argument of trickyTricky. trickyTricky is then given two arguments, face and book.
 
 console.assert(inAnObject.anotherObject.test2.apply(confusing, ['foo', 'bar']) === '[object Object],foo,bar')
-// We're using the apply function on test2 and giving it the argument of confusing, confusing is given the array of ['foo', 'bar']. 
+// We're using the apply function on test2 and giving it the argument of confusing, confusing is given the array of ['foo', 'bar'].
 
 
 // --------------------------------------------------------------------------
